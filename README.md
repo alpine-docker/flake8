@@ -4,10 +4,10 @@ Auto-trigger docker build for flake8 when new release is announced
 # Usage:
 
     # must mount the local folder to /apps in container.
-    docker run -ti --rm -v $(pwd):/apps alpine/flake8 local_file.py
+    docker run -ti --rm -v $(pwd):/apps alpine/flake8:3.5.0 local_file.py
 
     # run flake8 container as command
-    alias flake="docker run -ti --rm -v $(pwd):/apps alpine/flake8"
+    alias flake="docker run -ti --rm -v $(pwd):/apps alpine/flake8:3.5.0"
     flake --help
     flake local_file.py
 
