@@ -6,11 +6,11 @@
 set -ex
 
 Usage() {
-  echo "$0 <image> <repo> [rebuild]"
+  echo "$0 [rebuild]"
 }
 
-image="${1:-alpine/flake8}"
-repo="${2:-PyCQA/flake8}"
+image="alpine/flake8"
+repo="PyCQA/flake8"
 
 latest=`curl -s https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1`
 sum=0
