@@ -4,5 +4,8 @@ FROM python:3-alpine
 ARG FLAKE8_VERSION
 
 RUN pip install flake8==$FLAKE8_VERSION
+
+WORKDIR /apps
+
 ENTRYPOINT ["flake8"]
-CMD ["--version"]
+CMD ["--help"]
