@@ -13,8 +13,7 @@ Auto-trigger docker build for flake8 when new release is announced
 
 # The Processes to build this image
 
-* enable travis ci cronjob on this repo to run build daily on master branch
-* check if there are new tags/releases announced
-* match the exist tags
-* if not found, build the image with latest tag and push to hub.docker.com
-
+* Enable Travis CI cronjob on this repo to run build daily on master branch
+* Check if there are new tags/releases announced in flake8 via Github REST API
+* Match the exist docker image tags via Hub.docker.io REST API
+* If not matched, build the image with latest version as tag and push to hub.docker.com
