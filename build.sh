@@ -22,9 +22,15 @@ do
   fi
 done
 
+branch=`git rev-parse --abbrev-ref HEAD`
+if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+
 if [[ ( $sum -ne 1 ) || ( $1 == "rebuild" ) ]];then
   docker build --build-arg FLAKE8_VERSION=$latest -t ${image}:${latest} .
   docker tag ${image}:${latest} ${image}:latest
+fi
+
+if [[ "$TRAVIS_BRANCH" == "master" ]]; then
   docker push ${image}:${latest}
   docker push ${image}:latest
 fi
