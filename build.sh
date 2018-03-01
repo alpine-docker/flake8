@@ -22,7 +22,7 @@ do
   fi
 done
 
-if [ $sum -ne 1 ];then
+if [[ ( $sum -ne 1 ) || ( $1 == "rebuild" ) ]];then
   docker build --build-arg FLAKE8_VERSION=$latest -t ${image}:$latest .
   docker push ${image}:${latest}
 fi
