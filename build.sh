@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
 # Prerequisite
-# Make sure you have login hub.docker.com with 
-# docker login -u <your_account>
+# Make sure you set secret enviroment variables: DOCKER_USERNAME and  DOCKER_PASSWORD in Travis CI
 
 set -ex
 
-image="alpine/flake8"
-repo="PyCQA/flake8"
+Usage() {
+  echo "$0 <image> <repo> [rebuild]"
+}
+
+image="${1:-alpine/flake8}"
+repo="${2:-PyCQA/flake8}"
 
 latest=`curl -s https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1`
 sum=0
@@ -25,10 +28,11 @@ done
 if [[ ( $sum -ne 1 ) || ( $1 == "rebuild" ) ]];then
   docker build --build-arg FLAKE8_VERSION=$latest -t ${image}:${latest} .
   docker tag ${image}:${latest} ${image}:latest
-fi
 
-if [[ "$TRAVIS_BRANCH" == "master" ]]; then
-  docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  docker push ${image}:${latest}
-  docker push ${image}:latest
+  if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    docker push ${image}:${latest}
+    docker push ${image}:latest
+  fi
+
 fi
