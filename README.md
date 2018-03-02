@@ -17,3 +17,4 @@ Auto-trigger docker build for flake8 when new release is announced
 * Check if there are new tags/releases announced in flake8 via Github REST API
 * Match the exist docker image tags via Hub.docker.io REST API
 * If not matched, build the image with latest version as tag and push to hub.docker.com
+* Versions old than 3.4.0 were manually built and pushed.
