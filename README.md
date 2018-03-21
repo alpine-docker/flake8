@@ -1,6 +1,15 @@
 # flake8
 Auto-trigger docker build for flake8 when new release is announced
 
+Repo:
+https://github.com/alpine-docker/flake8
+
+Daily build logs:
+https://travis-ci.org/alpine-docker/flake8
+
+Docker iamge tags:
+https://hub.docker.com/r/alpine/flake8/tags/
+
 # Usage:
 
     # must mount the local folder to /apps in container.
