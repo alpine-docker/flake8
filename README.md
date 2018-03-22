@@ -1,5 +1,5 @@
 # flake8
-Auto-trigger docker build for flake8 when new release is announced
+Auto-trigger docker build for [flake8](http://flake8.pycqa.org/) when new release is announced
 
 ### Repo:
 
