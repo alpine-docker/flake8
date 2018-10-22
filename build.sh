@@ -12,7 +12,7 @@ Usage() {
 image="alpine/flake8"
 repo="PyCQA/flake8"
 
-latest=`curl -s https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1`
+latest=`curl -s -u ${API_USER}:${API_TOKEN} https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1`
 sum=0
 echo "Lastest release is: ${latest}"
 
