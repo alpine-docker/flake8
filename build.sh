@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 # Prerequisite
-# Make sure you set secret enviroment variables: DOCKER_USERNAME and  DOCKER_PASSWORD in Travis CI
+# Make sure you set secret enviroment variables in Travis CI
+# DOCKER_USERNAME
+# DOCKER_PASSWORD
+# API_TOKEN
 
 set -ex
 
@@ -12,7 +15,7 @@ Usage() {
 image="alpine/flake8"
 repo="PyCQA/flake8"
 
-latest=`curl -s -u ${API_USER}:${API_TOKEN} https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1`
+latest=`curl -sL -H "Authorization: token ${API_TOKEN}"  https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1|sed 's/^v//'`
 sum=0
 echo "Lastest release is: ${latest}"
 
