@@ -9,7 +9,7 @@ https://github.com/alpine-docker/flake8
 
 https://travis-ci.org/alpine-docker/flake8
 
-### Docker iamge tags:
+### Docker image tags:
 
 https://hub.docker.com/r/alpine/flake8/tags/
 
