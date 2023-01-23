@@ -4,6 +4,7 @@ FROM python:3-alpine
 ARG FLAKE8_VERSION
 
 RUN pip install flake8==$FLAKE8_VERSION
+RUN pip install flake8-sarif
 
 WORKDIR /apps
 
