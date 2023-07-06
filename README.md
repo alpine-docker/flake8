@@ -1,3 +1,5 @@
+Archived, follow up project at https://github.com/alpine-docker/multi-arch-libs/tree/master/flake8
+
 # flake8
 Auto-trigger docker build for [flake8](http://flake8.pycqa.org/) when new release is announced
 
